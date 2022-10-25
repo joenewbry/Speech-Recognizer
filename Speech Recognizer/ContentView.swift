@@ -204,7 +204,9 @@ struct ContentView: View {
         let request = SFSpeechURLRecognitionRequest(url: url)
         
         let engine = AVAudioEngine()
-        let count = engine.inputNode.inputFormat(forBus: 0).channelCount
+        
+        
+        let count = engine.inputNode.numberOfInputs
         // from Stack overflow: https://stackoverflow.com/questions/63592450/sfspeechrecognizer-crashes-if-no-microphone-input-attached-in-mac-osx
         if count < 1 {
             print("Worried about crash")
